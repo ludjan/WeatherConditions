@@ -28,7 +28,7 @@ class WeatherConditionDetailsViewModel @Inject constructor(
         viewModelScope.launch {
             repository.getWeatherConditionById(id).let {
                 if (it != null) {
-                    this@WeatherConditionDetailsViewModel._weatherCondition.postValue(it)
+                    _weatherCondition.postValue(it)
                     conditionName = it.name
                     conditionType = it.conditionType
                     conditionOperator = it.conditionOperator
@@ -80,6 +80,9 @@ class WeatherConditionDetailsViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Launching a new coroutine to delete the data in a non-blocking way
+     */
     fun deleteWeatherCondition() = viewModelScope.launch {
         repository.deleteWeatherCondition(_weatherCondition.value!!)
     }

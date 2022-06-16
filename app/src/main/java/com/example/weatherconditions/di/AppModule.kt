@@ -2,7 +2,7 @@ package com.example.weatherconditions.di
 
 import android.app.Application
 import androidx.room.Room
-import com.example.weatherconditions.LocationForecastDataSource
+import com.example.weatherconditions.datasources.LocationForecastDataSource
 import com.example.weatherconditions.WeatherConditionRepository
 import com.example.weatherconditions.WeatherConditionRepositoryImpl
 import com.example.weatherconditions.datasources.GeoLocationDataSource
@@ -13,7 +13,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-// define how the depencecies should be created
+// define how the dependencies should be created
 
 @Module
 @InstallIn(SingletonComponent::class)

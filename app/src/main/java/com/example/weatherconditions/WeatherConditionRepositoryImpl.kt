@@ -1,6 +1,8 @@
 package com.example.weatherconditions
 
 import com.example.weatherconditions.datasources.GeoLocationDataSource
+import com.example.weatherconditions.datasources.LocationForecast
+import com.example.weatherconditions.datasources.LocationForecastDataSource
 import com.example.weatherconditions.model.GeoLocation
 import com.example.weatherconditions.model.weatherCondition.WeatherCondition
 import com.example.weatherconditions.room.WeatherConditionDao

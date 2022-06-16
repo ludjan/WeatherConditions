@@ -1,4 +1,4 @@
-package com.example.weatherconditions;
+package com.example.weatherconditions.datasources;
 
 import android.util.Log
 import com.github.kittinunf.fuel.Fuel

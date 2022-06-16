@@ -13,7 +13,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Name"
-        android:hint="Enter a name"
+        android:hint="@string/enter_a_name"
+        android:importantForAutofill="no"
+        android:inputType="text"
         />
 
 
@@ -41,14 +43,14 @@
         app:layout_constraintTop_toBottomOf="@id/spinner_condition_operator"
         android:inputType="numberDecimal"
         tools:text="Value"
-        android:hint="Enter a value"
-        />
+        android:hint="@string/enter_a_value"
+        android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/save_weather_condition_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save"
+        android:text="@string/save_button_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/delete_weather_condition_button"
@@ -58,7 +60,7 @@
         android:id="@+id/delete_weather_condition_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Delete"
+        android:text="@string/delete_button_text"
         app:layout_constraintStart_toEndOf="@id/save_weather_condition_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

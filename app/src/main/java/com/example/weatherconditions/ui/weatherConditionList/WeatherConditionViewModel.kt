@@ -1,7 +1,7 @@
 package com.example.weatherconditions.ui.weatherConditionList
 
 import androidx.lifecycle.*
-import com.example.weatherconditions.LocationForecast
+import com.example.weatherconditions.datasources.LocationForecast
 import com.example.weatherconditions.WeatherConditionRepository
 import com.example.weatherconditions.model.GeoLocation
 import com.example.weatherconditions.model.WeatherConditionResult
