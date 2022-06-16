@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherconditions.databinding.ElementConditionBinding
 import com.example.weatherconditions.model.WeatherConditionResult
-import com.example.weatherconditions.model.watherCondition.WeatherCondition
 import com.example.weatherconditions.ui.weatherConditionList.WeatherConditionsFragmentDirections
 
 class WeatherConditionResultListAdapter :

@@ -1,13 +1,10 @@
 package com.example.weatherconditions
 
-import android.content.Context
 import com.example.weatherconditions.datasources.GeoLocationDataSource
 import com.example.weatherconditions.model.GeoLocation
-import com.example.weatherconditions.model.watherCondition.WeatherCondition
+import com.example.weatherconditions.model.weatherCondition.WeatherCondition
 import com.example.weatherconditions.room.WeatherConditionDao
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
 
 class WeatherConditionRepositoryImpl (
     private val dao: WeatherConditionDao,

@@ -2,7 +2,7 @@ package com.example.weatherconditions.room
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.example.weatherconditions.model.watherCondition.WeatherCondition
+import com.example.weatherconditions.model.weatherCondition.WeatherCondition
 
 @Database(
     entities = [WeatherCondition::class],

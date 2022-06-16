@@ -12,8 +12,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.weatherconditions.R
 import com.example.weatherconditions.databinding.FragmentWeatherConditionsDetailsBinding
-import com.example.weatherconditions.model.watherCondition.ConditionOperator
-import com.example.weatherconditions.model.watherCondition.ConditionType
+import com.example.weatherconditions.model.weatherCondition.ConditionOperator
+import com.example.weatherconditions.model.weatherCondition.ConditionType
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

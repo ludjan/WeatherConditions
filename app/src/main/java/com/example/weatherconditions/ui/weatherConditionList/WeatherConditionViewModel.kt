@@ -5,9 +5,9 @@ import com.example.weatherconditions.LocationForecast
 import com.example.weatherconditions.WeatherConditionRepository
 import com.example.weatherconditions.model.GeoLocation
 import com.example.weatherconditions.model.WeatherConditionResult
-import com.example.weatherconditions.model.watherCondition.ConditionOperator
-import com.example.weatherconditions.model.watherCondition.ConditionType
-import com.example.weatherconditions.model.watherCondition.WeatherCondition
+import com.example.weatherconditions.model.weatherCondition.ConditionOperator
+import com.example.weatherconditions.model.weatherCondition.ConditionType
+import com.example.weatherconditions.model.weatherCondition.WeatherCondition
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

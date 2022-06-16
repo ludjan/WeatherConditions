@@ -1,7 +1,7 @@
 package com.example.weatherconditions
 
 import com.example.weatherconditions.model.GeoLocation
-import com.example.weatherconditions.model.watherCondition.WeatherCondition
+import com.example.weatherconditions.model.weatherCondition.WeatherCondition
 import kotlinx.coroutines.flow.Flow
 
 // Repository should have the access to all Datasources, and decide what to forward to viewModels

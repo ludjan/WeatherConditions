@@ -1,7 +1,7 @@
 package com.example.weatherconditions.room
 
 import androidx.room.*
-import com.example.weatherconditions.model.watherCondition.WeatherCondition
+import com.example.weatherconditions.model.weatherCondition.WeatherCondition
 import kotlinx.coroutines.flow.Flow
 
 @Dao

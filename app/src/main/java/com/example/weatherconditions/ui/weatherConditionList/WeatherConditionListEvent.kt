@@ -1,6 +1,6 @@
 package com.example.weatherconditions.ui.weatherConditionList
 
-import com.example.weatherconditions.model.watherCondition.WeatherCondition
+import com.example.weatherconditions.model.weatherCondition.WeatherCondition
 
 // should keep an object for each action which user can take from this screen
 sealed class WeatherConditionListEvent {

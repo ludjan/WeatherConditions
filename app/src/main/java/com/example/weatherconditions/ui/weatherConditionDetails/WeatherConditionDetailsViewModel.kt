@@ -3,9 +3,9 @@ package com.example.weatherconditions.ui.weatherConditionDetails
 import android.util.Log
 import androidx.lifecycle.*
 import com.example.weatherconditions.WeatherConditionRepository
-import com.example.weatherconditions.model.watherCondition.ConditionOperator
-import com.example.weatherconditions.model.watherCondition.ConditionType
-import com.example.weatherconditions.model.watherCondition.WeatherCondition
+import com.example.weatherconditions.model.weatherCondition.ConditionOperator
+import com.example.weatherconditions.model.weatherCondition.ConditionType
+import com.example.weatherconditions.model.weatherCondition.WeatherCondition
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
