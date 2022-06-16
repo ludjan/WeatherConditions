@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/weatherConditionsFragment">
+
+    <fragment
+        android:id="@+id/weatherConditionsFragment"
+        android:name="com.example.weatherconditions.ui.weatherConditionList.WeatherConditionsFragment"
+        android:label="fragment_weather_conditions"
+        tools:layout="@layout/fragment_weather_conditions" >
+        <argument
+            android:name="weatherConditionId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <action
+            android:id="@+id/action_weatherConditionsFragment_to_weatherConditionsDetailsFragment"
+            app:destination="@id/weatherConditionsDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/weatherConditionsDetailsFragment"
+        android:name="com.example.weatherconditions.ui.weatherConditionDetails.WeatherConditionsDetailsFragment"
+        android:label="fragment_weather_conditions_details"
+        tools:layout="@layout/fragment_weather_conditions_details" >
+        <argument
+            android:name="weatherConditionId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+</navigation>

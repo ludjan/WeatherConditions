@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="condition_operators_array">
+        <item>Bigger than</item>
+        <item>Smaller than</item>
+    </string-array>
+</resources>
