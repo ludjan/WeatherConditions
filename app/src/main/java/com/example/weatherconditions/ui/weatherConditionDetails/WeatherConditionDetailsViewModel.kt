@@ -22,9 +22,10 @@ class WeatherConditionDetailsViewModel @Inject constructor(
     private lateinit var conditionType: ConditionType
     private lateinit var conditionOperator: ConditionOperator
     private lateinit var conditionValue: String
-    private var conditionId = -1
+    private var conditionId: Int? = null
 
     fun setWeatherCondition(id: Int) {
+        Log.d(_dbTag, "About to find WeatherCondition with id $id")
         viewModelScope.launch {
             repository.getWeatherConditionById(id).let {
                 if (it != null) {
