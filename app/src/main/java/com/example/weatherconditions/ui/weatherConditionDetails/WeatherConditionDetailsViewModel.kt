@@ -2,7 +2,7 @@ package com.example.weatherconditions.ui.weatherConditionDetails
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.example.weatherconditions.WeatherConditionRepository
+import com.example.weatherconditions.repositories.WeatherConditionRepository
 import com.example.weatherconditions.model.weatherCondition.ConditionOperator
 import com.example.weatherconditions.model.weatherCondition.ConditionType
 import com.example.weatherconditions.model.weatherCondition.WeatherCondition

@@ -1,28 +1,18 @@
-package com.example.weatherconditions
+package com.example.weatherconditions.repositories
 
 import com.example.weatherconditions.datasources.GeoLocationDataSource
-import com.example.weatherconditions.datasources.LocationForecast
-import com.example.weatherconditions.datasources.LocationForecastDataSource
 import com.example.weatherconditions.model.GeoLocation
 import com.example.weatherconditions.model.weatherCondition.WeatherCondition
+import com.example.weatherconditions.repositories.WeatherConditionRepository
 import com.example.weatherconditions.room.WeatherConditionDao
 import kotlinx.coroutines.flow.Flow
 
 class WeatherConditionRepositoryImpl (
     private val dao: WeatherConditionDao,
-    private val geoLocationDataSource: GeoLocationDataSource,
-    private val locationForecastDataSource: LocationForecastDataSource
+    private val geoLocationDataSource: GeoLocationDataSource
 ) : WeatherConditionRepository {
 
     private var _geoLocation : GeoLocation? = null // for caching GeoLocation
-    private var _locationForecast : LocationForecast? = null // for caching locationForecast
-
-    override suspend fun getLocationForecast(): LocationForecast {
-        if (_locationForecast == null) {
-            _locationForecast = locationForecastDataSource.getLocationForecast(_geoLocation!!.lat, _geoLocation!!.lon)
-        }
-        return _locationForecast!!
-    }
 
     override suspend fun getGeoLocation(): GeoLocation {
         if (_geoLocation == null) {

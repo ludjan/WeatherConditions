@@ -38,8 +38,21 @@ class WeatherConditionResultListAdapter :
         private val binding = ElementConditionBinding.bind(view)
 
         fun bind(weatherConditionResult: WeatherConditionResult) {
+
+            // set the visible text
             binding.description.text = weatherConditionResult.weatherCondition.name
-            binding.textView.text = weatherConditionResult.result.toString()
+
+            // set the selected image
+            binding.conditionImage.setImageResource(R.drawable.ic_sun_icon)
+
+            // set the result image
+            if (weatherConditionResult.result) {
+                binding.conditionMet.setImageResource(R.drawable.ic_checkmark)
+            } else {
+                binding.conditionMet.setImageResource(R.drawable.ic_cross)
+            }
+
+            // set to navigate on click
             binding.favoriteCardview.setOnClickListener {
                 val action = WeatherConditionsFragmentDirections.
                     actionWeatherConditionsFragmentToWeatherConditionsDetailsFragment(

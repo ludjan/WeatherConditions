@@ -1,4 +1,4 @@
-package com.example.weatherconditions
+package com.example.weatherconditions.repositories
 
 import com.example.weatherconditions.datasources.LocationForecast
 import com.example.weatherconditions.model.GeoLocation
@@ -8,8 +8,6 @@ import kotlinx.coroutines.flow.Flow
 // Repository should have the access to all Datasources, and decide what to forward to viewModels
 
 interface WeatherConditionRepository {
-
-    suspend fun getLocationForecast(): LocationForecast
 
     suspend fun getGeoLocation(): GeoLocation
 

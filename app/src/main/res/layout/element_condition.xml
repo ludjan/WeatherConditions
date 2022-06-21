@@ -30,23 +30,13 @@
 
         <ImageView
             android:id="@+id/condition_met"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:src="@drawable/ic_launcher_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/condition_image"
             app:layout_constraintBottom_toBottomOf="@id/condition_image"
             app:layout_constraintStart_toEndOf="@id/condition_image"
-            />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Hei"
-            app:layout_constraintStart_toEndOf="@id/condition_met"
-            app:layout_constraintTop_toTopOf="@id/condition_met"
-            app:layout_constraintBottom_toBottomOf="@id/condition_met"
             />
 
         <TextView

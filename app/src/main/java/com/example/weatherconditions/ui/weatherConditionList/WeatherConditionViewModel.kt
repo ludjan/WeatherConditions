@@ -2,12 +2,13 @@ package com.example.weatherconditions.ui.weatherConditionList
 
 import androidx.lifecycle.*
 import com.example.weatherconditions.datasources.LocationForecast
-import com.example.weatherconditions.WeatherConditionRepository
+import com.example.weatherconditions.repositories.WeatherConditionRepository
 import com.example.weatherconditions.model.GeoLocation
 import com.example.weatherconditions.model.WeatherConditionResult
 import com.example.weatherconditions.model.weatherCondition.ConditionOperator
 import com.example.weatherconditions.model.weatherCondition.ConditionType
 import com.example.weatherconditions.model.weatherCondition.WeatherCondition
+import com.example.weatherconditions.repositories.WeatherForecastRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -17,7 +18,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class WeatherConditionViewModel @Inject constructor(
-    private val repository: WeatherConditionRepository
+    private val weatherConditionRepository: WeatherConditionRepository,
+    private val weatherForecastRepository: WeatherForecastRepository
 ): ViewModel() {
 
     private val _weatherConditionsResult = MutableLiveData<List<WeatherConditionResult>>()
@@ -25,9 +27,6 @@ class WeatherConditionViewModel @Inject constructor(
     fun getWeatherConditionResults(): LiveData<List<WeatherConditionResult>> {
         return _weatherConditionsResult
     }
-
-    val weatherConditionsFlow = repository.getWeatherConditionsFlow().asLiveData()
-//    val locationForecastFlow = repository.getLocationForecast().asLiveData()
 
     // Using LiveData and caching what allWords returns has several benefits:
     // - We can put an observer on the data (instead of polling for changes) and only update the
@@ -43,19 +42,19 @@ class WeatherConditionViewModel @Inject constructor(
 
             // get weatherConditions async
             val weatherConditionsDeferred = CoroutineScope(Dispatchers.IO).async {
-                repository.getWeatherConditions()
+                weatherConditionRepository.getWeatherConditions()
             }
             weatherConditions = weatherConditionsDeferred.await()
 
             // get geoLocation async
             val geoLocationDeferred = CoroutineScope(Dispatchers.IO).async {
-                repository.getGeoLocation()
+                weatherConditionRepository.getGeoLocation()
             }
             geoLocation = geoLocationDeferred.await()
 
             // get locationForecast async
             val locationForecastDeferred = CoroutineScope(Dispatchers.IO).async {
-                repository.getLocationForecast()
+                weatherForecastRepository.getWeatherForecast(geoLocation.lat, geoLocation.lon)
             }
             locationForecast = locationForecastDeferred.await()
 
