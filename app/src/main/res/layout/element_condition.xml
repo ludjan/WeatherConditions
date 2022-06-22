@@ -17,6 +17,17 @@
         android:layout_height="match_parent"
         android:padding="20dp">
 
+        <TextView
+            android:id="@+id/condition_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="This is the description"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/condition_image"
             android:layout_width="96dp"
@@ -24,7 +35,7 @@
             android:src="@drawable/ic_launcher_background"
             app:civ_border_color="#FF000000"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/condition_name"
             app:layout_constraintEnd_toStartOf="@id/condition_met"
             />
 
@@ -40,14 +51,14 @@
             />
 
         <TextView
-            android:id="@+id/description"
+            android:id="@+id/condition_generated_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="This is the description"
+            tools:text="This is the generated description"
             app:layout_constraintTop_toBottomOf="@id/condition_image"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

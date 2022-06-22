@@ -25,11 +25,11 @@ object AppModule {
     @Singleton
     // dagger calls this function automatically
     fun provideWeatherConditionDatabase(app: Application): WeatherConditionDatabase {
-        return Room.databaseBuilder(
-            app,
+        return Room.databaseBuilder(app,
             WeatherConditionDatabase::class.java,
-            "weathercondition_db"
-        ).build()
+            "weathercondition_db")
+            .fallbackToDestructiveMigration()
+            .build()
     }
 
     @Provides

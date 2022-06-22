@@ -7,7 +7,4 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 
 @HiltAndroidApp
-class WeatherConditionsApplication : Application() {
-
-    
-}
+class WeatherConditionsApplication : Application() { }

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.RadioGroup
 import android.widget.Spinner
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
@@ -36,6 +37,14 @@ class WeatherConditionsDetailsFragment : Fragment(R.layout.fragment_weather_cond
 
         binding.inputConditionName.doAfterTextChanged {
             viewModel.nameTextChanged(it.toString())
+        }
+
+        binding.radioGroupIcon.setOnCheckedChangeListener { radioGroup, i ->
+            when (i) {
+                R.id.radio_no_icon -> viewModel.iconRadioChanged("ic_launcher_foreground")
+                R.id.radio_sun -> viewModel.iconRadioChanged("ic_sun_icon")
+                R.id.radio_wind -> viewModel.iconRadioChanged("ic_wind_icon")
+            }
         }
 
         binding.spinnerConditionType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -91,7 +100,16 @@ class WeatherConditionsDetailsFragment : Fragment(R.layout.fragment_weather_cond
                     ConditionOperator.SMALLER_THAN -> binding.spinnerConditionOperator.setSelection(1)
                 }
                 binding.inputConditionValue.setText(it.conditionValue.toString())
+
+                when (it.conditionIcon) {
+                    "ic_sun_icon" -> binding.radioGroupIcon.check(R.id.radio_sun)
+                    "ic_wind_icon" -> binding.radioGroupIcon.check(R.id.radio_wind)
+                    else -> binding.radioGroupIcon.check(R.id.radio_no_icon)
+                }
+
+                // if a weatherCondition was loaded into view, user can delete it
                 binding.deleteWeatherConditionButton.isEnabled = true
+
             }
         }
         viewModel.setWeatherCondition(args.weatherConditionId)

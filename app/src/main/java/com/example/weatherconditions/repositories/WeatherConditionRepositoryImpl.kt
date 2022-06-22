@@ -3,7 +3,6 @@ package com.example.weatherconditions.repositories
 import com.example.weatherconditions.datasources.GeoLocationDataSource
 import com.example.weatherconditions.model.GeoLocation
 import com.example.weatherconditions.model.weatherCondition.WeatherCondition
-import com.example.weatherconditions.repositories.WeatherConditionRepository
 import com.example.weatherconditions.room.WeatherConditionDao
 import kotlinx.coroutines.flow.Flow
 

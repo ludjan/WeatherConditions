@@ -9,11 +9,15 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherconditions.databinding.ElementConditionBinding
 import com.example.weatherconditions.model.WeatherConditionResult
+import com.example.weatherconditions.model.weatherCondition.ConditionOperator
+import com.example.weatherconditions.model.weatherCondition.ConditionType
 import com.example.weatherconditions.ui.weatherConditionList.WeatherConditionsFragmentDirections
 
 class WeatherConditionResultListAdapter :
     ListAdapter<WeatherConditionResult, WeatherConditionResultListAdapter.WeatherConditionResultViewHolder>
         (WeatherConditionResultComparator()) {
+
+    private val dbTag = "WeatherConditionsResultListAdapter"
 
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(
@@ -35,15 +39,21 @@ class WeatherConditionResultListAdapter :
      */
     class WeatherConditionResultViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
+        private val dbTag = "WeatherConditionsResultViewHolder"
+
         private val binding = ElementConditionBinding.bind(view)
 
         fun bind(weatherConditionResult: WeatherConditionResult) {
 
             // set the visible text
-            binding.description.text = weatherConditionResult.weatherCondition.name
+            binding.conditionName.text = weatherConditionResult.weatherCondition.name
 
-            // set the selected image
-            binding.conditionImage.setImageResource(R.drawable.ic_sun_icon)
+            val resourceId = itemView.context.resources.getIdentifier(
+                weatherConditionResult.weatherCondition.conditionIcon,
+                "drawable",
+                itemView.context.packageName
+            )
+            binding.conditionImage.setImageResource(resourceId)
 
             // set the result image
             if (weatherConditionResult.result) {
@@ -60,6 +70,23 @@ class WeatherConditionResultListAdapter :
                     )
                 itemView.findNavController().navigate(action)
             }
+
+            val genConType = when (weatherConditionResult.weatherCondition.conditionType) {
+                ConditionType.TEMPERATURE -> "Temperature"
+                ConditionType.WIND_STRENGTH -> "Wind strength"
+            }
+            val genConOp = when (weatherConditionResult.weatherCondition.conditionOperator) {
+                ConditionOperator.BIGGER_THAN -> "more than"
+                ConditionOperator.SMALLER_THAN -> "less than"
+            }
+
+            val genConRes = when (weatherConditionResult.result) {
+                true -> ""
+                false -> "not "
+            }
+
+            binding.conditionGeneratedDescription.text =
+                "$genConType is $genConRes$genConOp ${weatherConditionResult.weatherCondition.conditionValue}"
         }
 
         companion object {

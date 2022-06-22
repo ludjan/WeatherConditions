@@ -22,6 +22,7 @@ class WeatherConditionDetailsViewModel @Inject constructor(
     private lateinit var conditionType: ConditionType
     private lateinit var conditionOperator: ConditionOperator
     private lateinit var conditionValue: String
+    private var conditionIcon: String = "ic_launcher_background"
     private var conditionId: Int? = null
 
     fun setWeatherCondition(id: Int) {
@@ -34,6 +35,7 @@ class WeatherConditionDetailsViewModel @Inject constructor(
                     conditionType = it.conditionType
                     conditionOperator = it.conditionOperator
                     conditionValue = it.conditionValue.toString()
+                    conditionIcon = it.conditionIcon
                     conditionId = it.id!!
                 }
             }
@@ -58,6 +60,11 @@ class WeatherConditionDetailsViewModel @Inject constructor(
         Log.d(_dbTag, "conditionTypeChanged, new type is {$type}")
     }
 
+    fun iconRadioChanged(s: String) {
+        conditionIcon = s
+        Log.d(_dbTag, "Icon was changed to {$s}")
+    }
+
     fun conditionOperatorChanged(operator: ConditionOperator) {
         conditionOperator = operator
         Log.d(_dbTag, "conditionOperatorChanged, new type is {$operator}")
@@ -67,13 +74,17 @@ class WeatherConditionDetailsViewModel @Inject constructor(
      * Launching a new coroutine to insert the data in a non-blocking way
      */
     fun addEditWeatherCondition() = viewModelScope.launch {
+
+        // conditionImage should be name without file format
+
         if (conditionName.isNotBlank() && conditionValue.isNotBlank()) {
             val newWeatherCondition = WeatherCondition(
                 conditionId,
                 conditionName,
                 conditionType,
                 conditionOperator,
-                conditionValue.toDouble()
+                conditionValue.toDouble(),
+                conditionIcon
             )
             repository.insertWeatherCondition(newWeatherCondition)
         } else {

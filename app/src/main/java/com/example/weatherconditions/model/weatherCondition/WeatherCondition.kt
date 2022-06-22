@@ -1,5 +1,6 @@
 package com.example.weatherconditions.model.weatherCondition
 
+import android.graphics.drawable.Drawable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -10,5 +11,5 @@ data class WeatherCondition(
     val conditionType: ConditionType,
     val conditionOperator: ConditionOperator,
     val conditionValue: Double,
-    var conditionResult: Boolean = false
+    val conditionIcon: String
 )

@@ -67,5 +67,32 @@
         android:enabled="false"
         />
 
+        <RadioGroup
+            android:id="@+id/radio_group_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/input_condition_value"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="vertical"
+            android:checkedButton="@id/radio_no_icon">
+
+            <RadioButton
+                android:id="@+id/radio_no_icon"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/no_icon"/>
+            <RadioButton
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/sun"
+                android:id="@+id/radio_sun"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wind"
+                android:id="@+id/radio_wind"/>
+        </RadioGroup>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
