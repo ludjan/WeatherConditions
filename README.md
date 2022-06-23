@@ -3,6 +3,8 @@
 A simple MVVM app, where a user can add and see result of WeatherConditions.
 A WeatherCondition, in this context, is simply some condition that can be true depending on the weather.
 
+Have a look at some sketches for UI, https://github.com/ludjan/WeatherConditions/blob/main/weatherConditions.pdf
+
 For example, user could create a WeatherCondition which will become true if the air temperature is bigger than 20 degrees.
 
 It's a convenient and fun way to check the weather forcast!
